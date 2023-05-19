@@ -18,11 +18,30 @@ class CompteBancaire {
     this.name = name
     this.amount = amount
   }
+
+  showBalance() {
+    console.log(`Le compte au nom de ${this.name} contient actuellement ${this.amount}€.`);
+  }
+
+  addMoney(amount) {
+    this.amount += amount;
+    console.log(`Vous venez d'ajouter ${amount}€ au compte de ${this.name}. Le solde est maintenant de ${this.amount}€.`);
+  }
+
+  withdrawMoney(amount) {
+    this.amount -= amount;
+    console.log(`Vous venez de retirer ${amount}€ au compte de ${this.name}. Le solde est maintenant de ${this.amount}€.`);
+  }
+
 }
 
 const nvcomptebancaire = new CompteBancaire('Quentin', 4500)
+nvcomptebancaire.showBalance()
+nvcomptebancaire.addMoney(500)
+nvcomptebancaire.showBalance()
+nvcomptebancaire.withdrawMoney(4000)
 
-console.log(nvcomptebancaire);
+// console.log(nvcomptebancaire);
 
 </script>
 
