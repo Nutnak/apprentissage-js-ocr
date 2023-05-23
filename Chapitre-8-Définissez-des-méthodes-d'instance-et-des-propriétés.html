@@ -30,7 +30,11 @@ class CompteBancaire {
 
   withdrawMoney(amount) {
     this.amount -= amount;
-    console.log(`Vous venez de retirer ${amount}€ au compte de ${this.name}. Le solde est maintenant de ${this.amount}€.`);
+    if (this.amount < 0) {
+      console.log(`Vous venez de retirer ${amount}€ au compte de ${this.name}. Le solde est maintenant de ${this.amount}€. Attention, le compte est au négatif.`);
+    } else {
+      console.log(`Vous venez de retirer ${amount}€ au compte de ${this.name}. Le solde est maintenant de ${this.amount}€.`);
+    }
   }
 
 }
@@ -39,6 +43,9 @@ const nvcomptebancaire = new CompteBancaire('Quentin', 4500)
 nvcomptebancaire.showBalance()
 nvcomptebancaire.addMoney(500)
 nvcomptebancaire.showBalance()
+nvcomptebancaire.withdrawMoney(4000)
+nvcomptebancaire.withdrawMoney(4000)
+nvcomptebancaire.addMoney(50000)
 nvcomptebancaire.withdrawMoney(4000)
 
 // console.log(nvcomptebancaire);
